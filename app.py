@@ -10,8 +10,11 @@ from resourses.Auth import ns as ns_auth
 from resourses.CarrinhoItem import ns as ns_carrinhoItem
 from resourses.Carrinho import ns as ns_carrinho
 
+
 app = Flask(__name__)
-CORS(app, origins=["https://bebel132.github.io"])
+
+CORS(app, origins=["https://bebel132.github.io"], methods=["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"], allow_headers=["Content-Type", "Authorization"])
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///banco.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config["JWT_SECRET_KEY"] = "supersegredolalalala"
